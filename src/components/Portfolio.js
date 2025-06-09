@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Code, User, BookOpen, Award, ExternalLink, Menu, X, ChevronDown } from 'lucide-react';
+import { Github, Linkedin, Mail, Code, User, BookOpen, Award, ExternalLink, Menu, X, ChevronDown, GraduationCap, Calendar } from 'lucide-react';
 import './Portfolio.css';
 import Photo from './../images/Photo.jpeg'
+import Lottie from "lottie-react";
+import developerAnim from "../assets/developer.json"; // adjust path if needed
+import { FaReact, FaNodeJs, FaPython, FaJava, FaDocker, FaGit, FaDatabase } from 'react-icons/fa';
+import { SiSpringboot, SiMongodb, SiDjango, SiJavascript, SiMysql } from 'react-icons/si';
+import { FaBrain } from 'react-icons/fa'; // Best alternative for Machine Learning
+
+
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -16,32 +23,67 @@ const Portfolio = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const skills = [
-    'JavaScript', 'React', 'Node.js', 'Python', 'Java', 'HTML/CSS',
-    'MongoDB', 'Express.js', 'Git', 'SQL', 'REST APIs', 'Firebase'
+  
+const skills = [
+  { name: 'Spring Boot', icon: <SiSpringboot size={30} /> },
+  { name: 'React', icon: <FaReact size={30} color="#61DBFB" /> },
+  { name: 'Node.js', icon: <FaNodeJs size={30} color="#68A063" /> },
+  { name: 'Python', icon: <FaPython size={30} color="#3572A5" /> },
+  { name: 'Java', icon: <FaJava size={30} /> },
+  { name: 'Machine Learning', icon: <FaBrain size={30} color="#FF6B81" /> },
+  { name: 'MongoDB', icon: <SiMongodb size={30} color="#4DB33D" /> },
+  { name: 'Django', icon: <SiDjango size={30} color="#092E20" /> },
+  { name: 'Git', icon: <FaGit size={30} color="#F1502F" /> },
+  { name: 'SQL', icon: <SiMysql size={30} color="#00758F" /> },
+  { name: 'JavaScript', icon: <SiJavascript size={30} color="#F0DB4F" /> },
+  { name: 'Docker', icon: <FaDocker size={30} color="#0db7ed" /> }
+];
+
+  const education = [
+    {
+      institution: 'Dharmsinh Desai University',
+      degree: 'Bachelor of Technology - BTech, Computer Engineering',
+      duration: 'Sep 2023 - May 2026',
+      grade: '8.62 CGPA',
+      logo: '🎓'
+    },
+    {
+      institution: 'Gujarat Technological University (Kalyan Polytechnic, Jamnagar)',
+      degree: 'Diploma, Computer Engineering',
+      duration: 'Jun 2020 - Aug 2023',
+      grade: '10 CGPA',
+      logo: '🏛️'
+    },
+    {
+      institution: 'St Ann\'s High School',
+      degree: 'Upto 10th',
+      duration: 'Completed 2020',
+      grade: '89%(99.53 Percentile)',
+      logo: '🏫'
+    }
   ];
 
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment integration, and admin dashboard.',
-      tech: ['React', 'Node.js', 'MongoDB', 'Express'],
+      title: 'MovieBuff',
+      description: 'MovieBuff is a comprehensive web-based movie ticket booking platform designed to modernize and streamline the cinema-going experience. The system serves as a bridge between moviegoers, theater operators, and cinema administrators, providing an integrated solution for movie ticket booking and theater management.',
+      tech: ['React', 'Spring Boot', 'MongoDB', 'Cloudionary'],
+      github: 'https://github.com/kar1005/MovieBuff',
+      live: 'https://moviebuff-lac.vercel.app'
+    },
+    {
+      title: 'CodeMateAI',
+      description: 'CodeMate AI is a powerful web application that leverages AI to analyze GitHub repositories and generate comprehensive code insights, summaries, and software architecture diagrams. Built with a modern tech stack featuring Express.js backend, FastAPI for AI integration, and React frontend, CodeMate AI helps developers understand codebases faster and better visualize software architecture.',
+      tech: ['React', 'Express.js', 'MongoDB', 'Flask'],
       github: 'https://github.com/kar1005',
       live: '#'
     },
     {
-      title: 'Task Management App',
-      description: 'Responsive task management application with drag-and-drop functionality, real-time updates, and collaborative features.',
-      tech: ['React', 'Firebase', 'CSS3', 'JavaScript'],
-      github: 'https://github.com/kar1005',
-      live: '#'
-    },
-    {
-      title: 'Weather Dashboard',
-      description: 'Real-time weather application with location-based forecasts, interactive maps, and beautiful UI animations.',
-      tech: ['JavaScript', 'API Integration', 'CSS3', 'HTML5'],
-      github: 'https://github.com/kar1005',
-      live: '#'
+      title: 'GourmetBite',
+      description: 'GourmetBite is a versatile web application designed to streamline restaurant operations and enhance customer satisfaction.It offers intuitive interfaces for customers to browse menus, place orders, book tables, and manage payments effortlessly.',
+      tech: ['React', 'Node.js', 'MongoDB', 'Express.js'],
+      github: 'https://github.com/kar1005/GourmetBite',
+      live: ''
     },
     {
       title: 'Portfolio Website',
@@ -63,6 +105,54 @@ const Portfolio = () => {
 
   return (
     <div className="portfolio">
+      <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+        <div className="nav-container">
+          <div className="nav-content">
+            <div className="logo">
+              {/* Khushi Ruparelia */}
+            </div>
+            
+            {/* Desktop Menu */}
+            <div className="nav-menu desktop-menu">
+              {['home', 'about', 'education', 'skills', 'projects', 'contact'].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item)}
+                  className={`nav-link ${activeSection === item ? 'active' : ''}`}
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </button>
+              ))}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="mobile-menu-btn"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="mobile-menu">
+            <div className="mobile-menu-content">
+              {['home', 'about', 'education', 'skills', 'projects', 'contact'].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item)}
+                  className="mobile-nav-link"
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </nav>
+
       {/* Hero Section */}
       <section id="home" className="hero-section">
         <div className="stars-bg">
@@ -109,7 +199,7 @@ const Portfolio = () => {
                 <Mail size={24} />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/khushi-ruparelia-10m/"
                 className="social-link"
               >
                 <Linkedin size={24} />
@@ -136,7 +226,7 @@ const Portfolio = () => {
             <div className="about-image">
               <div className="about-img-container">
                 <div className="about-img-inner">
-                  <Code size={80} />
+                  <Lottie animationData={developerAnim} loop={true} />
                 </div>
               </div>
             </div>
@@ -171,21 +261,64 @@ const Portfolio = () => {
         </div>
       </section>
 
+      {/* Education Section */}
+      <section id="education" className="education-section">
+        <div className="container">
+          <h2 className="section-title">Education</h2>
+          <div className="education-timeline">
+            {education.map((edu, index) => (
+              <div key={index} className="education-card">
+                <div className="education-icon">
+                  <GraduationCap size={24} />
+                </div>
+                <div className="education-content">
+                  <div className="education-header">
+                    <div className="education-logo">{edu.logo}</div>
+                    <div className="education-info">
+                      <h3 className="education-institution">{edu.institution}</h3>
+                      <h4 className="education-degree">{edu.degree}</h4>
+                      <div className="education-duration">
+                        <Calendar size={16} />
+                        <span>{edu.duration}</span>
+                      </div>
+                      {edu.grade && (
+                        <div className="education-grade">
+                          <Award size={16} />
+                          <span>Grade: {edu.grade}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  {/* {edu.skills.length > 0 && (
+                    <div className="education-skills">
+                      <h5 className="skills-title">Skills:</h5>
+                      <div className="skills-tags">
+                        {edu.skills.map((skill, skillIndex) => (
+                          <span key={skillIndex} className="skill-tag">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )} */}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Skills Section */}
       <section id="skills" className="skills-section">
         <div className="container">
           <h2 className="section-title">Skills & Technologies</h2>
           <div className="skills-grid">
             {skills.map((skill, index) => (
-              <div
-                key={skill}
-                className="skill-card"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
+              <div key={skill.name} className="skill-card" style={{ animationDelay: `${index * 0.1}s` }}>
                 <div className="skill-icon">
-                  <Code size={24} />
+                  {skill.icon}
                 </div>
-                <h3 className="skill-name">{skill}</h3>
+                <h3 className="skill-name">{skill.name}</h3>
               </div>
             ))}
           </div>
@@ -269,7 +402,7 @@ const Portfolio = () => {
               <div className="contact-card">
                 <Linkedin size={32} />
                 <h3>LinkedIn</h3>
-                <a href="#">
+                <a href="https://www.linkedin.com/in/khushi-ruparelia-10m/">
                   Connect with me
                 </a>
               </div>

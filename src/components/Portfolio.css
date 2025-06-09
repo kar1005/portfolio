@@ -118,6 +118,7 @@ body {
 
 /* Hero Section */
 .hero-section {
+  padding-top: 0px;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -349,6 +350,131 @@ body {
   color: #ccc;
 }
 
+/* Education Section */
+.education-section {
+  padding: 5rem 0;
+  background: rgba(17, 17, 17, 0.5);
+}
+
+.education-timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.education-card {
+  position: relative;
+  background: #333;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid #a855f7;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.education-card:hover {
+  background: #404040;
+  transform: translateX(10px);
+  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.25);
+}
+
+.education-icon {
+  position: absolute;
+  left: -18px;
+  top: 2rem;
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  border: 3px solid #000;
+}
+
+.education-content {
+  margin-left: 1rem;
+}
+
+.education-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.education-logo {
+  font-size: 2rem;
+  background: #555;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.education-info {
+  flex: 1;
+}
+
+.education-institution {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #a855f7;
+  margin-bottom: 0.5rem;
+}
+
+.education-degree {
+  font-size: 1.125rem;
+  color: #fff;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.education-duration,
+.education-grade {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ccc;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.education-duration svg,
+.education-grade svg {
+  color: #a855f7;
+}
+
+.education-skills {
+  margin-top: 1.5rem;
+}
+
+.skills-title {
+  color: #fff;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skills-tags .skill-tag {
+  background: rgba(168, 85, 247, 0.2);
+  color: #d8b4fe;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
 /* Skills Section */
 .skills-section {
   padding: 5rem 0;
@@ -392,7 +518,7 @@ body {
   height: 48px;
   margin: 0 auto 1rem;
   border-radius: 50%;
-  background: linear-gradient(135deg, #a855f7, #ec4899);
+  background: white;/*linear-gradient(135deg, #a855f7, #ec4899);*/
   display: flex;
   align-items: center;
   justify-content: center;
