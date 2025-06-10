@@ -19,6 +19,7 @@ const Portfolio = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+    document.title = "Khushi Ruparelia";
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -86,10 +87,10 @@ const skills = [
       live: ''
     },
     {
-      title: 'Portfolio Website',
-      description: 'Modern, responsive portfolio website showcasing projects and skills with smooth animations and dark theme.',
-      tech: ['React', 'CSS3', 'JavaScript', 'Responsive Design'],
-      github: 'https://github.com/kar1005',
+      title: 'Movie Recommender System',
+      description: 'Machine learning-based movie recommendation engine using TMDB dataset with interactive user interface using Streamlit',
+      tech: ['Streamlit', 'Machine Learning', 'Python'],
+      github: 'https://github.com/kar1005/movie-recommender-system',
       live: '#'
     }
   ];
