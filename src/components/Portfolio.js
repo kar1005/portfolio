@@ -77,21 +77,18 @@ const skills = [
       description: 'CodeMate AI is a powerful web application that leverages AI to analyze GitHub repositories and generate comprehensive code insights, summaries, and software architecture diagrams. Built with a modern tech stack featuring Express.js backend, FastAPI for AI integration, and React frontend, CodeMate AI helps developers understand codebases faster and better visualize software architecture.',
       tech: ['React', 'Express.js', 'MongoDB', 'Flask'],
       github: 'https://github.com/kar1005',
-      live: '#'
     },
     {
       title: 'GourmetBite',
       description: 'GourmetBite is a versatile web application designed to streamline restaurant operations and enhance customer satisfaction.It offers intuitive interfaces for customers to browse menus, place orders, book tables, and manage payments effortlessly.',
       tech: ['React', 'Node.js', 'MongoDB', 'Express.js'],
       github: 'https://github.com/kar1005/GourmetBite',
-      live: ''
     },
     {
       title: 'Movie Recommender System',
       description: 'Machine learning-based movie recommendation engine using TMDB dataset with interactive user interface using Streamlit',
       tech: ['Streamlit', 'Machine Learning', 'Python'],
       github: 'https://github.com/kar1005/movie-recommender-system',
-      live: '#'
     }
   ];
 
@@ -247,7 +244,7 @@ const skills = [
                 or planning my next creative venture. I believe in continuous learning and growth, both personally 
                 and professionally.
               </p>
-              <div className="stats">
+              {/* <div className="stats">
                 <div className="stat-item">
                   <span className="stat-number">100+</span>
                   <span className="stat-label">Problems Solved</span>
@@ -256,7 +253,7 @@ const skills = [
                   <span className="stat-number">50+</span>
                   <span className="stat-label">Projects Built</span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -355,13 +352,15 @@ const skills = [
                     <Github size={20} />
                     <span>Code</span>
                   </a>
-                  <a
-                    href={project.live}
-                    className="project-link"
-                  >
-                    <ExternalLink size={20} />
-                    <span>Live Demo</span>
-                  </a>
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      className="project-link"
+                    >
+                      <ExternalLink size={20} />
+                      <span>Live Demo</span>
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
