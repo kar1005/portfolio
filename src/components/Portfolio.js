@@ -77,6 +77,7 @@ const skills = [
       description: 'CodeMate AI is a powerful web application that leverages AI to analyze GitHub repositories and generate comprehensive code insights, summaries, and software architecture diagrams. Built with a modern tech stack featuring Express.js backend, FastAPI for AI integration, and React frontend, CodeMate AI helps developers understand codebases faster and better visualize software architecture.',
       tech: ['React', 'Express.js', 'MongoDB', 'Flask'],
       github: 'https://github.com/kar1005',
+      live: 'https://code-mate-ai-nine.vercel.app/',
     },
     {
       title: 'GourmetBite',
