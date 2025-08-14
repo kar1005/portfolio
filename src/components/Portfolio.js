@@ -3,10 +3,10 @@ import { Github, Linkedin, Mail, Code, User, BookOpen, Award, ExternalLink, Menu
 import './Portfolio.css';
 import Photo from './../images/Photo.jpeg'
 import Lottie from "lottie-react";
-import developerAnim from "../assets/developer.json"; // adjust path if needed
+import developerAnim from "../assets/developer.json";
 import { FaReact, FaNodeJs, FaPython, FaJava, FaDocker, FaGit, FaDatabase } from 'react-icons/fa';
 import { SiSpringboot, SiMongodb, SiDjango, SiJavascript, SiMysql } from 'react-icons/si';
-import { FaBrain } from 'react-icons/fa'; // Best alternative for Machine Learning
+import { FaBrain } from 'react-icons/fa'; 
 
 
 
